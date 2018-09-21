@@ -1,12 +1,36 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <mat-sidenav-container>
-    <mat-sidenav #sidenav>
-        <app-sidenav-list (navCloseOnToggle)="sidenav.close()"></app-sidenav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <app-header (SideNavOpen)="sidenav.toggle()"></app-header>
-        <div class="container">
-            <router-outlet></router-outlet>
-        </div>
-    </mat-sidenav-content>
+  <mat-sidenav #sidenav [mode]="'side'" class="example-sidenav">
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          Header 1
+        </mat-expansion-panel-header>
+        <mat-action-row>
+          <button mat-button routerLink="/signin">Signin</button>
+        </mat-action-row>
+        <mat-action-row>
+            <button mat-button routerLink="/home">Home</button>
+          </mat-action-row>
+          <mat-action-row>
+              <button mat-button routerLink="/wrong">Page not found</button>
+            </mat-action-row>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          Header 2
+        </mat-expansion-panel-header>
+        <mat-action-row>
+          <button mat-button routerLink="/home">Home</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-header (SideNavOpen)="sidenav.toggle()"></app-header>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
 </mat-sidenav-container>
