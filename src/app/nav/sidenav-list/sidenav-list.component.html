@@ -1,47 +1,32 @@
-<!-- <mat-nav-list>
-    <a mat-list-item routerLink="" (click)="closeOnToggle()">
-      <mat-icon>home</mat-icon>
-      <span>Home</span>
-    </a>
-  <a mat-list-item routerLink="signin" (click)="closeOnToggle()">
-    <mat-icon>view_headline</mat-icon>
-    <span>Signin</span>
-  </a>
-  <a mat-list-item routerLink="signin" (click)="closeOnToggle()">
-    <mat-icon>toc</mat-icon>
-    <span>Links - 1</span>
-  </a>
-  <a mat-list-item routerLink="signin" (click)="closeOnToggle()">
-    <mat-icon>reorder</mat-icon>
-    <span>Links - 2</span>
-  </a>
-</mat-nav-list> -->
-
-
-<!--The content below is only a placeholder and can be replaced.-->
-<mat-sidenav-container class="example-container">
-  <mat-sidenav #start [mode]="'side'" class="example-sidenav">
-    <mat-accordion>
-       <mat-expansion-panel >
-        <mat-expansion-panel-header>
-            Test One 2 3
-        </mat-expansion-panel-header>
-         <mat-action-row >
-          <button mat-button>Test</button>
-        </mat-action-row>
-        <mat-expansion-panel-header>
-          Test One 2 3
+<mat-sidenav #sidenav [mode]="'side'" class="example-sidenav">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        Header 1
       </mat-expansion-panel-header>
-       <mat-action-row >
-        <button mat-button>Test</button>
+      <mat-action-row>
+        <button mat-button routerLink="/signin">Signin</button>
       </mat-action-row>
-
-      </mat-expansion-panel>
-
-    </mat-accordion>
-  </mat-sidenav>
-
-  <mat-sidenav-content>
-      <button mat-icon-button (click)="start.toggle()"><i class="material-icons">reorder</i></button>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+      <mat-action-row>
+        <button mat-button routerLink="/home">Home</button>
+      </mat-action-row>
+      <mat-action-row>
+        <button mat-button routerLink="/wrong">Page not found</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        Header 2
+      </mat-expansion-panel-header>
+      <mat-action-row>
+        <button mat-button routerLink="/home">Home</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+</mat-sidenav>
+<mat-sidenav-content>
+  <app-header (SideNavOpen)="sidenav.toggle()"></app-header>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-content>
