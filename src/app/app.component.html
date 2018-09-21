@@ -5,8 +5,8 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <app-header (SideNavOpen)="sidenav.toggle()"></app-header>
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
     </mat-sidenav-content>
-
-
 </mat-sidenav-container>
-<router-outlet></router-outlet>
